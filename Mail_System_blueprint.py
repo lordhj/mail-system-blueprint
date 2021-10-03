@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import smtplib
+
 window = Tk()
 window.title("MAIL System")
 window.config(width=640, height=480, padx=20, pady=20)
@@ -26,6 +27,7 @@ message_entry.insert(END, "Type your message here")
 message_entry.grid(row=4, column=0, columnspan=2)
 
 #Functions
+
 def login():
     mail_addr = from_mail_label_entry.get()
     passwd = to_mail_label_entry.get()
@@ -35,7 +37,11 @@ def login():
             connection.login(user=mail_addr, password=passwd)
         except:
             messagebox.showinfo(title="Error!", message="Please make sure you have allowed"
-            " you account to use SMTP and you are entering the correct details.")
+            " your account to use SMTP and you are entering the correct details.")
+        else:
+            from_mail_label.config(text="From:")
+            to_mail_label.config(text="To:")
+            login_button.config(state="disabled")
 
 
 #Buttons
