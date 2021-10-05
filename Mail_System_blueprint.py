@@ -5,6 +5,8 @@ import smtplib
 window = Tk()
 window.title("MAIL System")
 window.config(width=640, height=480, padx=20, pady=20)
+mail_addr = ""
+passwd = ""
 
 #--------UI Elements--------#
 
@@ -29,6 +31,8 @@ message_entry.grid(row=4, column=0, columnspan=2)
 #Functions
 
 def login():
+    global mail_addr
+    global passwd
     mail_addr = from_mail_label_entry.get()
     passwd = to_mail_label_entry.get()
     with smtplib.SMTP("smtp.gmail.com") as connection:
@@ -43,11 +47,20 @@ def login():
             to_mail_label.config(text="To:")
             login_button.config(state="disabled")
 
+def send_msg():
+    recepient = to_mail_label_entry.get()
+    print(recepient)
+    messg = message_entry.get("1.0", END)
+    print(messg)
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=mail_addr, password=passwd)
+        connection.sendmail(from_addr=mail_addr, to_addrs=recepient, msg=messg)
 
 #Buttons
 login_button = Button(text="Login", command=login)
 login_button.grid(row=3, column=0)
-send_button = Button(text="Send")
+send_button = Button(text="Send", command=send_msg)
 send_button.grid(row=5,column=0)
 
 
