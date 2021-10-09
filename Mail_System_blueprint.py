@@ -11,7 +11,7 @@ passwd = ""
 #--------UI Elements--------#
 
 #Labels
-logo_text = Label(text="Mail System", font=("Arial", 22, "bold"), fg="blue")
+logo_text = Label(text="Mail System", font=("Arial", 32, "bold"), fg="blue")
 logo_text.grid(row=0, column=1)
 from_mail_label = Label(text="Email Address")
 from_mail_label.grid(row=1, column=0)
@@ -60,7 +60,9 @@ def send_msg():
 #Buttons
 login_button = Button(text="Login", command=login)
 login_button.grid(row=3, column=0)
-send_button = Button(text="Send", command=send_msg)
+
+button_img = PhotoImage(file="send_img.png")
+send_button = Button(image=button_img, command=send_msg, highlightthickness=0)
 send_button.grid(row=5,column=0)
 
 
