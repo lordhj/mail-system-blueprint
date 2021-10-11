@@ -23,7 +23,7 @@ to_mail_label_entry = Entry(width=30)
 to_mail_label_entry.grid(row=2, column=1)
 from_mail_label_entry = Entry(width=30)
 from_mail_label_entry.grid(row=1, column=1)
-message_entry = Text(height=5, width=40)
+message_entry = Text(height=5, width=60)
 message_entry.focus()
 message_entry.insert(END, "Type your message here")
 message_entry.grid(row=4, column=0, columnspan=2)
@@ -58,7 +58,8 @@ def send_msg():
         connection.sendmail(from_addr=mail_addr, to_addrs=recepient, msg=messg)
 
 #Buttons
-login_button = Button(text="Login", command=login)
+login_img = PhotoImage(file="login_img.png")
+login_button = Button(image=login_img, command=login, highlightthickness=0)
 login_button.grid(row=3, column=0)
 
 button_img = PhotoImage(file="send_img.png")
