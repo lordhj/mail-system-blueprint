@@ -13,9 +13,9 @@ passwd = ""
 #Labels
 logo_text = Label(text="Mail System", font=("Arial", 32, "bold"), fg="blue")
 logo_text.grid(row=0, column=1)
-from_mail_label = Label(text="Email Address")
+from_mail_label = Label(text="Email Address", font=("Arial", 12, "bold"), fg="blue")
 from_mail_label.grid(row=1, column=0)
-to_mail_label = Label(text="Password")
+to_mail_label = Label(text="Password", font=("Arial", 12, "bold"), fg="blue")
 to_mail_label.grid(row=2, column=0)
 
 #Entries
