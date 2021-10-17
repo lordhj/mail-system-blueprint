@@ -19,7 +19,7 @@ to_mail_label = Label(text="Password", font=("Arial", 12, "bold"), fg="blue")
 to_mail_label.grid(row=2, column=0)
 
 #Entries
-to_mail_label_entry = Entry(width=30)
+to_mail_label_entry = Entry(width=30, show="*")
 to_mail_label_entry.grid(row=2, column=1)
 from_mail_label_entry = Entry(width=30)
 from_mail_label_entry.grid(row=1, column=1)
@@ -44,6 +44,8 @@ def login():
             " your account to use SMTP and you are entering the correct details.")
         else:
             from_mail_label.config(text="From:")
+            to_mail_label_entry.delete(0, "end")
+            to_mail_label_entry.config(show="")
             to_mail_label.config(text="To:")
             login_button.config(state="disabled")
 
