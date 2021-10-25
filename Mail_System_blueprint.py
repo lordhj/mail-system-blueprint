@@ -39,6 +39,7 @@ def send_msg():
 def login():
     global mail_addr
     global passwd
+    global message_entry
     mail_addr = from_mail_label_entry.get()
     passwd = to_mail_label_entry.get()
     with smtplib.SMTP("smtp.gmail.com") as connection:
@@ -53,7 +54,7 @@ def login():
             to_mail_label_entry.delete(0, "end")
             to_mail_label_entry.config(show="")
             to_mail_label.config(text="To:")
-            login_button.config(image=send_img)
+            login_button.config(image=send_img, command=send_msg)
             login_button.grid(row=5,column=0)
             message_entry = Text(height=5, width=60)
             message_entry.focus()
