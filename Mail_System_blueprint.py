@@ -1,6 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
 import smtplib
+import pandas
+
+data = pandas.read_csv("squirrel_count.csv")
 
 window = Tk()
 window.title("MAIL System")
@@ -56,6 +59,7 @@ def login():
             to_mail_label.config(text="To:")
             login_button.config(image=send_img, command=send_msg)
             login_button.grid(row=5,column=0)
+            print(data)
             message_entry = Text(height=5, width=60)
             message_entry.focus()
             message_entry.insert(END, "Type your message here")
